@@ -17,13 +17,14 @@
       <div id="pomodoro-container" class="p-5 text-center shadow-sm border">
         <p class="mb-0">Time left:</p>
         <h1>11:00</h1>
-        <p><em>Hang in there!</em></p>
+        <p id="quote"><em>{{ quote }}</em></p>
       </div>
       <button id="action-button" class="btn btn-outline-danger m-1" type="button" name="button">Stop</button>
     </div>
 
     <!-- Optional JavaScript -->
-    <script src="index.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="quote.js" type="text/javascript"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
