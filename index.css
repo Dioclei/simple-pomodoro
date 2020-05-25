@@ -6,6 +6,8 @@ html, body {
   --bg-main-color: hsl(206, 29%, 90%);
   --bg-secondary-color: hsl(206, 11%, 100%);
   --bg-text-color: hsl(206, 32%, 47%);
+  --bg-text-hover-color: hsl(206, 32%, 20%);
+  --container-length: 300px;
 }
 
 #background {
@@ -15,10 +17,25 @@ html, body {
 #pomodoro-container {
   background-color: var(--bg-secondary-color);
   border-radius: 16px;
-  width: 300px;
+  width: var(--container-length);
 }
 
 #action-button {
-  width: 300px;
+  width: var(--container-length);
   border-radius: 16px;
+}
+
+#info-bar {
+  background-color: var(--bg-secondary-color);
+  border-radius: 16px;
+  width: var(--container-length);
+  height: inherit;
+}
+
+.fa-pencil-alt {
+  color: var(--bg-text-color)
+}
+
+.fa-pencil-alt:hover {
+  color: var(--bg-text-hover-color)
 }
