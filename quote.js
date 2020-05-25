@@ -7,7 +7,7 @@ let getRandomQuote = () => {
     "Let's do this!",
   ]
 
-  return quotes[Math.floor(Math.random() * 5)]
+  return quotes[Math.floor(Math.random() * 4)]
 }
 
 var quote = new Vue({
