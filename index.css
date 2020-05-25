@@ -1,0 +1,24 @@
+html, body {
+  height: 100%;
+}
+
+:root {
+  --bg-main-color: hsl(206, 29%, 90%);
+  --bg-secondary-color: hsl(206, 11%, 100%);
+  --bg-text-color: hsl(206, 32%, 47%);
+}
+
+#background {
+  background-color: var(--bg-main-color);
+}
+
+#pomodoro-container {
+  background-color: var(--bg-secondary-color);
+  border-radius: 16px;
+  width: 300px;
+}
+
+#action-button {
+  width: 300px;
+  border-radius: 16px;
+}
