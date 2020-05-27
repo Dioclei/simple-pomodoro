@@ -5,6 +5,7 @@ let pomodoroController = new Vue({
     timeInitial: 1500, // in seconds, refers to the time from which the timer started
     timeLeft: 1500, // in seconds (default is 25 minutes)
     timerId: '',
+    quote: getRandomQuote(),
     showInfoBar: true,
     cycles: 5,
     cyclesInitial: 5,

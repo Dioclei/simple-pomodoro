@@ -9,10 +9,3 @@ let getRandomQuote = () => {
 
   return quotes[Math.floor(Math.random() * 4)]
 }
-
-var quote = new Vue({
-  el: '#quote',
-  data: {
-    quote: getRandomQuote()
-  }
-})
