@@ -32,10 +32,10 @@ html, body {
   height: inherit;
 }
 
-.fa-pencil-alt {
+.icon-button {
   color: var(--bg-text-color)
 }
 
-.fa-pencil-alt:hover {
+.icon-button:hover {
   color: var(--bg-text-hover-color)
 }
