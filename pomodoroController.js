@@ -1,11 +1,12 @@
 let pomodoroController = new Vue({
   el: '#pomodoro-controller',
   data: {
+
     pomodoroIsRunning: true,
     showInfoBar: true,
-    cycles: '5',
-    workMinutes: '25',
-    breakMinutes: '5',
+    cycles: 5,
+    workMinutes: 25,
+    breakMinutes: 5,
     editTitle: 'Double click to edit'
   },
   computed: {
@@ -28,16 +29,17 @@ let pomodoroController = new Vue({
       // TODO: start the timer and stop the timer
     },
     addCycles() {
-      this.cycles = (parseInt(this.cycles) + 1).toString()
+      this.cycles = this.cycles + 1
     },
     minusCycles() {
-      if (this.cycles == '1') {
-        // TODO: throw an error message: this will stop the timer. are you sure?
-      }
-      if (this.cycles == '0') {
+      if (this.cycles == 0) {
         return;
       }
-      this.cycles = (parseInt(this.cycles) - 1).toString()
+      if (this.cycles == 1) {
+        return window.confirm('This will stop and reset the timer. Are you sure?') //returns true if 'OK' pressed
+        // TODO: stop and reset the timer.
+      }
+      this.cycles = this.cycles - 1
     },
   }
 })
