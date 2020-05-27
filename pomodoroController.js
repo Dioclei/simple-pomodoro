@@ -57,7 +57,7 @@ let pomodoroController = new Vue({
       this.timeLeft = this.timeLeft - 1
       if (this.timeLeft <= 0) {
         this.endTimer()
-        if (this.cycles >= 1) {
+        if (this.cycles > 1) {
           this.cycles = this.cycles - 1
           this.startTimer()
           return;
@@ -80,12 +80,8 @@ let pomodoroController = new Vue({
       this.cycles = this.cycles + 1
     },
     minusCycles() {
-      if (this.cycles == 0) {
+      if (this.cycles <= 1) {
         return;
-      }
-      if (this.cycles == 1) {
-        return window.confirm('This will stop and cancel the pomodoro timer. Are you sure?') //returns true if 'OK' pressed
-        // TODO: stop and reset the timer.
       }
       this.cycles = this.cycles - 1
     },
