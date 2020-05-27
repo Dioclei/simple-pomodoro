@@ -25,7 +25,7 @@
             <h1>{{ minutesLeft }}:{{ secondsLeft }}</h1>
             <p id="quote"><em>{{ quote }}</em></p>
           </div>
-          <button id="action-button" v-on:click='onClickActionButton' class="btn btn-outline-danger m-1" type="button" name="button">Stop</button>
+          <button id="action-button" v-on:click='onClickActionButton' class="btn m-1" v-bind:class='actionButtonClassObject' type="button" name="button">{{ actionButtonText }}</button>
         </div>
         <div id="info-bar" v-show="showInfoBar" class="p-5">
           <div class="d-flex flex-row justify-content-between">

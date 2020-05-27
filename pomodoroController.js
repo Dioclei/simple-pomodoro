@@ -20,6 +20,15 @@ let pomodoroController = new Vue({
     },
     secondsLeft: function() {
       return (this.timeLeft % 60).toString().padStart(2, '0')
+    },
+    actionButtonClassObject: function() {
+      return {
+        'btn-danger': this.pomodoroIsRunning,
+        'btn-success': !this.pomodoroIsRunning
+      }
+    },
+    actionButtonText: function() {
+      return this.pomodoroIsRunning ? 'Cancel Pomodoro' : 'Start Pomodoro'
     }
   },
   methods: {
@@ -46,7 +55,6 @@ let pomodoroController = new Vue({
         this.pomodoroIsRunning = true
       }
       console.log('action button clicked!')
-      // TODO: switch between start & stop/pause button
     },
     countdown() {
       this.timeLeft = this.timeLeft - 1
