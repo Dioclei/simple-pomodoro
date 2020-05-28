@@ -23,7 +23,7 @@
           <div id="pomodoro-container" class="p-5 text-center shadow-sm border">
             <p class="mb-0">{{ currentModeText }}</p>
             <h1>{{ minutesLeft }}:{{ secondsLeft }}</h1>
-            <p id="quote" v-show='pomodoroIsRunning'><em>{{ quote }}</em></p>
+            <p v-show='pomodoroIsRunning'><em>{{ quote }}</em></p>
             <div class="form check">
               <input class="form-check-input" type="checkbox" v-model="stopAfterLongBreak">
               <label class="form-check-label">Stop after long break</label>
