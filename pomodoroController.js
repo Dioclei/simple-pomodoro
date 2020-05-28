@@ -26,7 +26,7 @@ let pomodoroController = new Vue({
     bgColor: function() {
       switch (this.currentMode) {
         case WORK_TIME:
-          return '#3B8BF7'
+          return '#67A4F5'
         case SHORT_BREAK_TIME:
           return 'coral'
         case LONG_BREAK_TIME:
@@ -90,7 +90,7 @@ let pomodoroController = new Vue({
           this.endTimer().resetTimerId().setNextModeToDownTime().updateCycles().calculateTimeNext().calculateNextMode().displayNextTiming()
         }
       } else {
-        this.setInitialCycles().setNextModeToDownTime().updateCycles().calculateTimeNext().calculateNextMode().displayNextTiming().startTimer()
+        this.setInitialCycles().calculateTimeNext().calculateNextMode().displayNextTiming().startTimer()
       }
     },
     countdown() {
@@ -178,6 +178,7 @@ let pomodoroController = new Vue({
         case DOWN_TIME:
           this.currentMode = DOWN_TIME
           this.nextMode = WORK_TIME
+          return this
         case WORK_TIME:
           this.currentMode = WORK_TIME
           if (this.cycles > 1) { // prepare for a short break

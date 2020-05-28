@@ -20,6 +20,7 @@ html, body {
 #action-button {
   width: var(--container-length);
   border-radius: 16px;
+  border-color: grey;
 }
 
 #info-bar {
