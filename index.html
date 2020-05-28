@@ -20,7 +20,7 @@
     <div id="background" class="h-100 d-flex align-items-center justify-content-center" style="">
       <div id='pomodoro-controller' class="d-flex flex-column">
         <div class="">
-          <div id="pomodoro-container" class="p-5 text-center shadow-sm border">
+          <div id="pomodoro-container" class="p-5 text-center shadow-sm">
             <p class="mb-0">{{ currentModeText }}</p>
             <h1>{{ minutesLeft }}:{{ secondsLeft }}</h1>
             <p v-show='pomodoroIsRunning'><em>{{ quote }}</em></p>
@@ -29,9 +29,9 @@
               <label class="form-check-label">Stop after long break</label>
             </div>
           </div>
-          <button id="action-button" v-on:click='onClickActionButton' class="btn m-1" v-bind:class='actionButtonClassObject' type="button" name="button">{{ actionButtonText }}</button>
+          <button id="action-button" v-on:click='onClickActionButton' class="btn my-1 shadow-sm" v-bind:class='actionButtonClassObject' type="button" name="button">{{ actionButtonText }}</button>
         </div>
-        <div id="info-bar" v-show="showInfoBar" class="p-5">
+        <div id="info-bar" v-show="showInfoBar" class="shadow-sm p-5">
           <div class="d-flex flex-row justify-content-between">
             <p><span style="font-size: 28px">{{ cycles }} </span> {{ cyclesText }}</p>
             <div>
