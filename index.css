@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  background-color: transparent;
 }
 
 :root {
@@ -8,10 +9,6 @@ html, body {
   --bg-text-color: hsl(206, 32%, 47%);
   --bg-text-hover-color: hsl(206, 32%, 20%);
   --container-length: 300px;
-}
-
-#background {
-  background-color: var(--bg-main-color);
 }
 
 #pomodoro-container {
@@ -38,4 +35,8 @@ html, body {
 
 .icon-button:hover {
   color: var(--bg-text-hover-color)
+}
+
+.smaller-words {
+  font-size: 13px;
 }

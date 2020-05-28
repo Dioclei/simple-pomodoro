@@ -20,9 +20,23 @@ let pomodoroController = new Vue({
     workMinutes: 0.2,
     shortBreakMinutes: 0.1,
     longBreakMinutes: 0.3,
-    editTitle: 'Double click to edit'
+    editTitle: 'Double click to edit',
   },
   computed: {
+    bgColor: function() {
+      switch (this.currentMode) {
+        case WORK_TIME:
+          return '#3B8BF7'
+        case SHORT_BREAK_TIME:
+          return 'coral'
+        case LONG_BREAK_TIME:
+          return 'salmon'
+        case DOWN_TIME:
+          return 'grey'
+        default:
+          return 'black'
+      }
+    },
     currentModeText: function() {
       switch (this.currentMode) {
         case DOWN_TIME:
