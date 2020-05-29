@@ -1,3 +1,6 @@
+var noSleep = new NoSleep();
+console.log(noSleep)
+
 const SHORT_BREAK_TIME = 'SHORT_BREAK_TIME'
 const LONG_BREAK_TIME = 'LONG_BREAK_TIME'
 const WORK_TIME = 'WORK_TIME'
@@ -115,9 +118,11 @@ let pomodoroController = new Vue({
       if (this.pomodoroIsRunning) {
         if (window.confirm('This will stop and cancel the pomodoro timer. Are you sure?')) {
           // BUG: confirm stops ALL SCRIPTS from running. calculate time left from a start date/end date instead.
+          noSleep.disable()
           this.endTimer().resetTimerId().setNextModeToDownTime().updateCycles().calculateTimeNext().calculateNextMode().displayNextTiming()
         }
       } else if (!this.showWorkMinutesInput && !this.showShortBreakMinutesInput && !this.showLongBreakMinutesInput) {
+        noSleep.enable()
         this.setInitialCycles().calculateTimeNext().calculateNextMode().displayNextTiming().startTimer()
       }
     },
