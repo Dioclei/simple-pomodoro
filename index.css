@@ -45,3 +45,7 @@ html, body {
 .smaller-words {
   font-size: 13px;
 }
+
+.larger-words {
+  font-size: 28px;
+}

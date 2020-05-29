@@ -3,6 +3,12 @@ const LONG_BREAK_TIME = 'LONG_BREAK_TIME'
 const WORK_TIME = 'WORK_TIME'
 const DOWN_TIME = 'DOWN_TIME'
 
+Vue.directive('focus', {
+  inserted: function (el) {
+    el.focus()
+  }
+})
+
 let pomodoroController = new Vue({
   el: '#pomodoro-controller',
   data: {
@@ -11,15 +17,18 @@ let pomodoroController = new Vue({
     nextMode: WORK_TIME,
     stopAfterLongBreak: false,
     timeNext: 1, // in seconds, refers to the time from which the timer will start next.
-    timeLeft: 1, // in seconds (default is 25 minutes)
+    timeLeft: 1,
     timerId: '',
     quote: getRandomQuote(),
     showInfoBar: true,
     cycles: 5,
     cyclesInitial: 5,
-    workMinutes: 0.2,
-    shortBreakMinutes: 0.1,
-    longBreakMinutes: 0.3,
+    workMinutes: 25,
+    showWorkMinutesInput: false,
+    shortBreakMinutes: 5,
+    showShortBreakMinutesInput: false,
+    longBreakMinutes: 15,
+    showLongBreakMinutesInput: false,
     editTitle: 'Double click to edit',
   },
   computed: {
@@ -55,10 +64,10 @@ let pomodoroController = new Vue({
       return this.pomodoroIsRunning ? 'CYCLES LEFT' : 'CYCLES';
     },
     minutesLeft: function() {
-      return (Math.floor(this.timeLeft / 60)).toString().padStart(2, '0')
+      return this.currentMode == DOWN_TIME ? (Math.floor(this.workMinutes)).toString().padStart(2, '0') : (Math.floor(this.timeLeft / 60)).toString().padStart(2, '0')
     },
     secondsLeft: function() {
-      return (this.timeLeft % 60).toString().padStart(2, '0')
+      return this.currentMode == DOWN_TIME ? (Math.round(this.workMinutes * 60 % 60)).toString().padStart(2, '0') : (Math.round(this.timeLeft % 60)).toString().padStart(2, '0')
     },
     actionButtonClassObject: function() {
       return {
@@ -71,17 +80,23 @@ let pomodoroController = new Vue({
     }
   },
   methods: {
-    changeWorkMinutes() {
-      console.log('change work minutes!')
-      // TODO: change the work minutes to an input field, then take final value and show it. i.e change the minutes w input field
+    displayWorkMinutesInput() {
+      this.showWorkMinutesInput = true
     },
-    changeShortBreakMinutes() {
-      console.log('change short break minutes!')
-      // TODO: change the break minutes to an input field, then take final value and show it. i.e change the minutes w input field
+    hideWorkMinutesInput() {
+      this.showWorkMinutesInput = false
     },
-    changeLongBreakMinutes() {
-      console.log('change long break minutes!')
-      // TODO: change the break minutes to an input field, then take final value and show it. i.e change the minutes w input field
+    displayShortBreakMinutesInput() {
+      this.showShortBreakMinutesInput = true
+    },
+    hideShortBreakMinutesInput() {
+      this.showShortBreakMinutesInput = false
+    },
+    displayLongBreakMinutesInput() {
+      this.showLongBreakMinutesInput = true
+    },
+    hideLongBreakMinutesInput() {
+      this.showLongBreakMinutesInput = false
     },
     onClickActionButton() {
       if (this.pomodoroIsRunning) {

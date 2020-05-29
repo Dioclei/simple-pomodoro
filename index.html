@@ -33,23 +33,38 @@
         </div>
         <div id="info-bar" v-show="showInfoBar" class="shadow-sm px-5 py-4" >
           <div class="d-flex flex-row justify-content-between">
-            <p class="smaller-words"><span style="font-size: 28px">{{ cycles }} </span> {{ cyclesText }}</p>
+            <p>
+              <span class="larger-words">{{ cycles }} </span>
+              <span class="smaller-words"> {{ cyclesText }}</span>
+            </p>
             <div class="my-auto">
               <button class="icon-button btn p-0 m-auto" type="button" name="button" v-on:click='addCycles'><i class="fas fa-plus"></i></button>
               <button class="icon-button btn p-0" type="button" name="button" v-on:click='minusCycles'><i class="fas fa-minus"></i></button>
             </div>
           </div>
           <div class="d-flex flex-row justify-content-between">
-            <p class="smaller-words"><span v-bind:title='editTitle' v-on:dblclick='changeWorkMinutes' style="font-size: 28px">{{ workMinutes }}</span> MINS WORK</p>
-            <button class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='changeWorkMinutes'><i class="fas fa-pencil-alt"></i></button>
+            <p>
+              <input v-focus v-if="showWorkMinutesInput" type="number" name="workMinutes" v-model="workMinutes" @keyup.enter="hideWorkMinutesInput" @blur="hideWorkMinutesInput" style="width:50px">
+              <span v-else class="larger-words" @dblclick="displayWorkMinutesInput">{{ workMinutes }} </span>
+              <span class="smaller-words"> MINS WORK</span>
+            </p>
+            <button class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='displayWorkMinutesInput'><i class="fas fa-pencil-alt"></i></button>
           </div>
           <div class="d-flex flex-row justify-content-between">
-            <p class="smaller-words"><span v-bind:title='editTitle' v-on:dblclick='changeShortBreakMinutes' style="font-size: 28px">{{ shortBreakMinutes }}</span> MINS SHORT BREAK</p>
-            <button class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='changeShortBreakMinutes'><i class="fas fa-pencil-alt"></i></button>
+            <p>
+              <input v-focus v-if="showShortBreakMinutesInput" type="number" name="shortBreakMinutes" v-model="shortBreakMinutes" @keyup.enter="hideShortBreakMinutesInput" @blur="hideShortBreakMinutesInput" style="width:50px">
+              <span v-else class="larger-words" @dblclick="displayShortBreakMinutesInput">{{ shortBreakMinutes }} </span>
+              <span class="smaller-words"> MINS SHORT BREAK</span>
+            </p>
+            <button class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='displayShortBreakMinutesInput'><i class="fas fa-pencil-alt"></i></button>
           </div>
           <div class="d-flex flex-row justify-content-between">
-            <p class="smaller-words"><span v-bind:title='editTitle' v-on:dblclick='changeLongBreakMinutes' style="font-size: 28px">{{ longBreakMinutes }}</span> MINS LONG BREAK</p>
-            <button class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='changeLongBreakMinutes'><i class="fas fa-pencil-alt"></i></button>
+            <p>
+              <input v-focus v-if="showLongBreakMinutesInput" type="number" name="longBreakMinutes" v-model="longBreakMinutes" @keyup.enter="hideLongBreakMinutesInput" @blur="hideLongBreakMinutesInput" style="width:50px">
+              <span v-else class="larger-words" @dblclick="displayLongBreakMinutesInput">{{ longBreakMinutes }} </span>
+              <span class="smaller-words"> MINS LONG BREAK</span>
+            </p>
+            <button class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='displayLongBreakMinutesInput'><i class="fas fa-pencil-alt"></i></button>
           </div>
 
 
