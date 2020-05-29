@@ -11,6 +11,10 @@ html, body {
   --container-length: 300px;
 }
 
+#pomodoro-controller {
+  transition: background-color 1s;
+}
+
 #pomodoro-container {
   background-color: var(--bg-secondary-color);
   border-radius: 16px;
