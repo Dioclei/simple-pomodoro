@@ -44,27 +44,27 @@
           </div>
           <div class="d-flex flex-row justify-content-between">
             <p>
-              <input v-focus v-if="showWorkMinutesInput" type="number" name="workMinutes" v-model="workMinutes" @keyup.enter="hideWorkMinutesInput" @blur="hideWorkMinutesInput" style="width:50px">
+              <input v-focus v-if="showWorkMinutesInput" type="number" min="0" max="999" name="workMinutes" v-model="workMinutes" @keyup.enter="hideWorkMinutesInput" @blur="hideWorkMinutesInput" style="width:50px">
               <span v-else class="larger-words" @dblclick="displayWorkMinutesInput">{{ workMinutes }} </span>
               <span class="smaller-words"> MINS WORK</span>
             </p>
-            <button class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='displayWorkMinutesInput'><i class="fas fa-pencil-alt"></i></button>
+            <button v-show="!pomodoroIsRunning" class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='displayWorkMinutesInput'><i class="fas fa-pencil-alt"></i></button>
           </div>
           <div class="d-flex flex-row justify-content-between">
             <p>
-              <input v-focus v-if="showShortBreakMinutesInput" type="number" name="shortBreakMinutes" v-model="shortBreakMinutes" @keyup.enter="hideShortBreakMinutesInput" @blur="hideShortBreakMinutesInput" style="width:50px">
+              <input v-focus v-if="showShortBreakMinutesInput" type="number" min="0" max="999" name="shortBreakMinutes" v-model="shortBreakMinutes" @keyup.enter="hideShortBreakMinutesInput" @blur="hideShortBreakMinutesInput" style="width:50px">
               <span v-else class="larger-words" @dblclick="displayShortBreakMinutesInput">{{ shortBreakMinutes }} </span>
               <span class="smaller-words"> MINS SHORT BREAK</span>
             </p>
-            <button class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='displayShortBreakMinutesInput'><i class="fas fa-pencil-alt"></i></button>
+            <button v-show="!pomodoroIsRunning" class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='displayShortBreakMinutesInput'><i class="fas fa-pencil-alt"></i></button>
           </div>
           <div class="d-flex flex-row justify-content-between">
             <p>
-              <input v-focus v-if="showLongBreakMinutesInput" type="number" name="longBreakMinutes" v-model="longBreakMinutes" @keyup.enter="hideLongBreakMinutesInput" @blur="hideLongBreakMinutesInput" style="width:50px">
+              <input v-focus v-if="showLongBreakMinutesInput" type="number" min="0" max="999" name="longBreakMinutes" v-model="longBreakMinutes" @keyup.enter="hideLongBreakMinutesInput" @blur="hideLongBreakMinutesInput" style="width:50px">
               <span v-else class="larger-words" @dblclick="displayLongBreakMinutesInput">{{ longBreakMinutes }} </span>
               <span class="smaller-words"> MINS LONG BREAK</span>
             </p>
-            <button class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='displayLongBreakMinutesInput'><i class="fas fa-pencil-alt"></i></button>
+            <button v-show="!pomodoroIsRunning" class="icon-button btn p-0 my-auto" type="button" name="button" v-on:click='displayLongBreakMinutesInput'><i class="fas fa-pencil-alt"></i></button>
           </div>
 
 

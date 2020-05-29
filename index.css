@@ -35,7 +35,8 @@ html, body {
 }
 
 .icon-button {
-  color: var(--bg-text-color)
+  color: var(--bg-text-color);
+  transition: visbility 1s;
 }
 
 .icon-button:hover {

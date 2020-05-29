@@ -81,22 +81,34 @@ let pomodoroController = new Vue({
   },
   methods: {
     displayWorkMinutesInput() {
-      this.showWorkMinutesInput = true
+      if (!this.pomodoroIsRunning) {
+        this.showWorkMinutesInput = true
+      }
     },
     hideWorkMinutesInput() {
-      this.showWorkMinutesInput = false
+      if (!!this.workMinutes && this.workMinutes > 0) {
+        this.showWorkMinutesInput = false
+      }
     },
     displayShortBreakMinutesInput() {
-      this.showShortBreakMinutesInput = true
+      if (!this.pomodoroIsRunning) {
+        this.showShortBreakMinutesInput = true
+      }
     },
     hideShortBreakMinutesInput() {
-      this.showShortBreakMinutesInput = false
+      if (!!this.shortBreakMinutes && this.shortBreakMinutes > 0) {
+        this.showShortBreakMinutesInput = false
+      }
     },
     displayLongBreakMinutesInput() {
-      this.showLongBreakMinutesInput = true
+      if (!this.pomodoroIsRunning) {
+        this.showLongBreakMinutesInput = true
+      }
     },
     hideLongBreakMinutesInput() {
-      this.showLongBreakMinutesInput = false
+      if (!!this.longBreakMinutes && this.longBreakMinutes > 0) {
+        this.showLongBreakMinutesInput = false
+      }
     },
     onClickActionButton() {
       if (this.pomodoroIsRunning) {
@@ -104,7 +116,7 @@ let pomodoroController = new Vue({
           // BUG: confirm stops ALL SCRIPTS from running. calculate time left from a start date/end date instead.
           this.endTimer().resetTimerId().setNextModeToDownTime().updateCycles().calculateTimeNext().calculateNextMode().displayNextTiming()
         }
-      } else {
+      } else if (!this.showWorkMinutesInput && !this.showShortBreakMinutesInput && !this.showLongBreakMinutesInput) {
         this.setInitialCycles().calculateTimeNext().calculateNextMode().displayNextTiming().startTimer()
       }
     },
