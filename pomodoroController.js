@@ -6,6 +6,7 @@ const DOWN_TIME = 'DOWN_TIME'
 Vue.directive('focus', {
   inserted: function (el) {
     el.focus()
+    el.select()
   }
 })
 
