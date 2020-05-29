@@ -1,5 +1,4 @@
 var noSleep = new NoSleep();
-console.log(noSleep)
 
 const SHORT_BREAK_TIME = 'SHORT_BREAK_TIME'
 const LONG_BREAK_TIME = 'LONG_BREAK_TIME'
